@@ -1,0 +1,173 @@
+{% extends "base.html" %}
+
+{% block title %}Party & Event Planner — PocketSmart AI{% endblock %}
+
+{% block content %}
+<div style="max-width: 800px; margin: 0 auto;">
+  <div style="margin-bottom: 2rem;">
+    <a href="/" style="color: var(--text-dim); text-decoration: none; font-size: 0.88rem;">← Back to Hub</a>
+    <div style="display: flex; align-items: center; gap: 0.75rem; margin-top: 0.75rem;">
+      <div class="planner-icon-wrap" style="width:42px; height:42px; font-size:1.3rem; background:rgba(245,158,11,0.15); color:#f59e0b; margin:0;">
+        🎉
+      </div>
+      <div>
+        <h1 style="font-size: 2rem;">Party & Event Planner</h1>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">
+          Optimize guest catering, mood lighting, entertainment, and celebration venues.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="glass-panel">
+    <form id="party-planner-form">
+      <!-- Budget Slider -->
+      <div class="form-group">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <label class="form-label" style="margin: 0;">Total Event Budget</label>
+          <span class="range-display" id="party-budget-display">₹25,000</span>
+        </div>
+        <div class="range-slider-wrap">
+          <input type="range" id="party-budget-slider" class="range-slider" min="5000" max="250000" step="2500" value="25000" data-display="party-budget-display" data-currency="true">
+        </div>
+      </div>
+
+      <!-- Guest Count Slider -->
+      <div class="form-group">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <label class="form-label" style="margin: 0;">Number of Guests</label>
+          <span class="range-display" id="guest-count-display">20 Guests</span>
+        </div>
+        <div class="range-slider-wrap">
+          <input type="range" id="guest-slider" class="range-slider" min="4" max="100" step="1" value="20" data-display="guest-count-display" data-currency="false">
+        </div>
+        <div style="font-size: 0.82rem; color: var(--text-dim); margin-top: 0.35rem;" id="per-guest-calc">
+          Estimated spend: ₹1,250 per guest
+        </div>
+      </div>
+
+      <!-- Event Type -->
+      <div class="form-group">
+        <label class="form-label">Event Type</label>
+        <select id="event-type-select" class="form-control">
+          <option value="Birthday Celebration" selected>Birthday Celebration</option>
+          <option value="Cocktail Evening & Social">Cocktail Evening & Social</option>
+          <option value="Housewarming Party">Housewarming Party</option>
+          <option value="Anniversary Gala">Anniversary Gala</option>
+          <option value="Casual Weekend Gathering">Casual Weekend Gathering</option>
+        </select>
+      </div>
+
+      <!-- Venue Rental Required -->
+      <div class="form-group">
+        <label class="form-label">Celebration Venue</label>
+        <div style="display: flex; gap: 1rem;">
+          <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+            <input type="radio" name="venue_required" value="false" checked>
+            <span>Host at Home / Existing Space</span>
+          </label>
+          <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+            <input type="radio" name="venue_required" value="true">
+            <span>Need Rented Venue / OYO Townhouse</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Food Preference -->
+      <div class="form-group">
+        <label class="form-label">Catering & Food Style</label>
+        <select id="food-preference-select" class="form-control">
+          <option value="Gourmet Finger Foods & Artisanal Platters" selected>Gourmet Finger Foods & Artisanal Platters</option>
+          <option value="North Indian Buffet with Biryani">North Indian Buffet with Biryani</option>
+          <option value="Continental & Italian Pizza / Pasta Spread">Continental & Italian Pizza / Pasta Spread</option>
+          <option value="Pure Vegetarian Festive Feast">Pure Vegetarian Festive Feast</option>
+          <option value="Barbecue & Craft Mocktail Coolers">Barbecue & Craft Mocktail Coolers</option>
+        </select>
+      </div>
+
+      <!-- Theme / Aesthetic -->
+      <div class="form-group">
+        <label class="form-label" for="theme-input">Party Theme or Vibe (Optional)</label>
+        <input type="text" id="theme-input" class="form-control" placeholder="e.g. Neon Glow, Retro 90s, Cozy Fairy Light Acoustic" value="Cozy Fairy Light Acoustic">
+      </div>
+
+      <div style="padding-top: 1rem; border-top: 1px solid var(--border-glass); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <div style="display: flex; gap: 0.5rem; align-items: center;">
+          <span style="font-size: 0.8rem; color: var(--text-dim);">Integrated Partners:</span>
+          <span class="source-tag source-swiggy">Swiggy</span>
+          <span class="source-tag source-zomato">Zomato</span>
+          <span class="source-tag source-oyo">OYO</span>
+        </div>
+        <button type="submit" id="party-submit-btn" class="btn btn-primary btn-lg">
+          Generate Party Plan 🥂
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+const bSlider = document.getElementById('party-budget-slider');
+const gSlider = document.getElementById('guest-slider');
+const perGuestEl = document.getElementById('per-guest-calc');
+
+function updatePerGuest() {
+  const b = parseFloat(bSlider.value);
+  const g = parseInt(gSlider.value);
+  const cost = Math.round(b / g);
+  perGuestEl.textContent = `Estimated spend: ${formatINR(cost)} per guest`;
+}
+
+bSlider.addEventListener('input', updatePerGuest);
+gSlider.addEventListener('input', updatePerGuest);
+
+document.getElementById('party-planner-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = document.getElementById('party-submit-btn');
+  btn.disabled = true;
+  btn.textContent = 'Calculating Event Split...';
+
+  const budget = parseFloat(bSlider.value);
+  const guest_count = parseInt(gSlider.value);
+  const event_type = document.getElementById('event-type-select').value;
+  const venue_required = document.querySelector('input[name="venue_required"]:checked').value === 'true';
+  const food_preference = document.getElementById('food-preference-select').value;
+  const theme_or_vibe = document.getElementById('theme-input').value.trim();
+
+  const payload = {
+    budget,
+    guest_count,
+    event_type,
+    venue_required,
+    food_preference,
+    theme_or_vibe
+  };
+
+  try {
+    const res = await fetch('/generate-party', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    if (!res.ok) {
+      const err = await res.json();
+      showToast(err.detail || 'Generation failed', 'error');
+      btn.disabled = false;
+      btn.textContent = 'Generate Party Plan 🥂';
+    } else {
+      const data = await res.json();
+      showToast('Party plan generated!', 'success');
+      setTimeout(() => {
+        window.location.href = `/recommendations/${data.plan_id}`;
+      }, 500);
+    }
+  } catch (err) {
+    showToast('Network error, please try again.', 'error');
+    btn.disabled = false;
+    btn.textContent = 'Generate Party Plan 🥂';
+  }
+});
+</script>
+{% endblock %}

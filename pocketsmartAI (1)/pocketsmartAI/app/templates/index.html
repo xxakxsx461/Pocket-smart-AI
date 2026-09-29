@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% block title %}PocketSmart AI — Intelligent Budget & Lifestyle Recommendation Platform{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <div class="hero-pill">
+    <span>🤖</span> Powered by Gemini AI & Real Market Sources
+  </div>
+  <h1 class="hero-title">
+    Spend Intelligently.<br>
+    Live <span class="gradient-text">Luxuriously</span> on Your Budget.
+  </h1>
+  <p class="hero-sub">
+    PocketSmart AI breaks down your budget, understands your personal aesthetic, and curates high-fidelity recommendations across home decor, unforgettable parties, and flawless jewelry pairings.
+  </p>
+  <div class="hero-cta">
+    <a href="/planner/home" class="btn btn-primary btn-lg">Plan Home Interior</a>
+    <a href="/planner/party" class="btn btn-outline btn-lg">Host a Party</a>
+    <a href="/planner/jewelry" class="btn btn-secondary btn-lg">Style Jewelry</a>
+  </div>
+</section>
+
+<!-- 3 Main Planners Showcase -->
+<div class="planner-grid">
+  <!-- Card 1: Home Interior -->
+  <div class="planner-card" style="--card-accent: var(--accent-emerald);">
+    <div>
+      <div class="planner-icon-wrap" style="background: rgba(16, 185, 129, 0.15); color: #10b981;">
+        🛋️
+      </div>
+      <span class="badge badge-home">Home Interior Planner</span>
+      <h3 class="planner-title" style="margin-top:0.75rem;">Furnish & Renovate Within Budget</h3>
+      <p class="planner-desc">
+        Specify your rooms, quantities, and aesthetic (Minimalist, Scandinavian, Bohemian). AI distributes your capital across functional essentials and decor.
+      </p>
+      <div class="planner-sources">
+        <span class="source-tag source-ikea">IKEA</span>
+        <span class="source-tag source-amazon">Amazon</span>
+      </div>
+    </div>
+    <a href="/planner/home" class="btn btn-outline" style="width: 100%;">Launch Home Planner →</a>
+  </div>
+
+  <!-- Card 2: Party Planner -->
+  <div class="planner-card" style="--card-accent: var(--accent-amber);">
+    <div>
+      <div class="planner-icon-wrap" style="background: rgba(245, 158, 11, 0.15); color: #f59e0b;">
+        🎉
+      </div>
+      <span class="badge badge-party">Party & Event Planner</span>
+      <h3 class="planner-title" style="margin-top:0.75rem;">Flawless Celebrations & Catering</h3>
+      <p class="planner-desc">
+        Enter guest count, venue requirements, and food vibes. AI allocates exact budgets for catering, mood lighting, entertainment, and hotel suites.
+      </p>
+      <div class="planner-sources">
+        <span class="source-tag source-swiggy">Swiggy</span>
+        <span class="source-tag source-zomato">Zomato</span>
+        <span class="source-tag source-oyo">OYO</span>
+      </div>
+    </div>
+    <a href="/planner/party" class="btn btn-outline" style="width: 100%;">Launch Party Planner →</a>
+  </div>
+
+  <!-- Card 3: Jewelry Planner -->
+  <div class="planner-card" style="--card-accent: var(--accent-rose);">
+    <div>
+      <div class="planner-icon-wrap" style="background: rgba(244, 63, 94, 0.15); color: #f43f5e;">
+        💎
+      </div>
+      <span class="badge badge-jewelry">Jewelry & Outfit Matcher</span>
+      <h3 class="planner-title" style="margin-top:0.75rem;">Multimodal Visual Styling</h3>
+      <p class="planner-desc">
+        Upload a photo of your dress or saree. Gemini Vision detects neckline cuts, fabric tones, and embroidery to match earrings, chokers, and cuffs.
+      </p>
+      <div class="planner-sources">
+        <span class="source-tag source-amazon">Amazon</span>
+        <span class="source-tag source-flipkart">Flipkart</span>
+      </div>
+    </div>
+    <a href="/planner/jewelry" class="btn btn-outline" style="width: 100%;">Launch Jewelry Planner →</a>
+  </div>
+</div>
+
+<!-- Architecture & Features Showcase -->
+<div class="glass-panel" style="margin-top: 3rem;">
+  <div style="text-align: center; max-width: 700px; margin: 0 auto 2.5rem;">
+    <span class="badge badge-ai">Core Architecture</span>
+    <h2 style="font-size: 2.2rem; margin: 0.75rem 0;">Engineered for Strict Budget Discipline</h2>
+    <p style="color: var(--text-muted);">
+      Traditional chatbots provide generic ideas. PocketSmart AI executes structured price discovery, ensuring every proposed cart totals under your budget ceiling.
+    </p>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem;">
+    <div class="glass-card">
+      <div style="font-size: 1.8rem; margin-bottom: 0.75rem;">⚖️</div>
+      <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem;">Mathematical Budget Guard</h4>
+      <p style="color: var(--text-muted); font-size: 0.9rem;">
+        Guarantees itemized allocations sum strictly to your budget, preventing surprise spending.
+      </p>
+    </div>
+    <div class="glass-card">
+      <div style="font-size: 1.8rem; margin-bottom: 0.75rem;">👁️</div>
+      <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem;">Multimodal Vision Matching</h4>
+      <p style="color: var(--text-muted); font-size: 0.9rem;">
+        Gemini 2.5 Flash inspects uploaded dress silhouettes, necklines, and hues for synchronized styling.
+      </p>
+    </div>
+    <div class="glass-card">
+      <div style="font-size: 1.8rem; margin-bottom: 0.75rem;">⚡</div>
+      <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem;">FastAPI Microservice Speed</h4>
+      <p style="color: var(--text-muted); font-size: 0.9rem;">
+        Asynchronous route handlers and thread-safe persistence provide instantaneous recommendation loading.
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock %}

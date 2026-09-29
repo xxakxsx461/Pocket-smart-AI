@@ -1,0 +1,34 @@
+POCKETSMART AI – SMART BUDGET & RECOMMENDATION ASSISTANT
+
+PHASE 5 PROJECT DEVELOPMENT
+
+Development
+
+- Backend developed using FastAPI.
+- Main application file appmain.py
+- Authentication router auth.py
+- Pages router pages.py
+- Planner router planners.py
+- Catalog service catalog_service.py
+- Recommendation service recommendation_service.py
+- Gemini integration gemini_client.py
+- AI prompts prompts.py
+- Database models models.py
+- Schemas schemas.py
+
+How to Run
+
+1. Install dependencies
+   pip install -r requirements.txt
+
+2. Set the Gemini API key in .env
+   GEMINI_API_KEY=your_api_key
+
+3. Start the application
+   python run.py
+
+4. Open
+   http127.0.0.18000
+
+
+- Recommendation history

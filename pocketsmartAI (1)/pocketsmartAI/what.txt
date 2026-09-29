@@ -1,0 +1,125 @@
+================================================================================
+                           POCKETSMART AI
+   AI-Powered Budget-Aware Lifestyle & Recommendation Web Application
+================================================================================
+
+1. PROJECT OVERVIEW
+--------------------------------------------------------------------------------
+PocketSmart AI is an intelligent web platform designed to solve the problem of
+budget anxiety and decision fatigue across lifestyle categories. Rather than
+being a generic conversational AI chatbot, PocketSmart AI acts as a mathematical
+budget strategist and lifestyle stylist. 
+
+It takes the user's hard budget limit, stylistic preferences, and specific
+requirements, and automatically generates itemized, realistically priced product
+and service recommendations that strictly adhere to the financial ceiling.
+
+
+2. THE THREE MAIN PLANNERS
+--------------------------------------------------------------------------------
+PocketSmart AI features three specialized lifestyle planning modules:
+
+a) Home Interior Planner
+   - Purpose: Furnish and decorate living spaces within a set budget.
+   - User Inputs: Total budget, selected rooms (Living Room, Bedroom, Dining Room,
+     Home Office, etc.), style preference (Modern Minimalist, Scandinavian, 
+     Industrial, Bohemian, etc.), color palette, and special constraints.
+   - AI Output: Room-by-room product catalog with estimated prices, design logic,
+     and direct purchase links.
+   - Integrated Sources: IKEA, Amazon, Wayfair.
+
+b) Party & Event Planner
+   - Purpose: Plan parties and celebrations with intelligent budget division.
+   - User Inputs: Total budget, guest count, event type (Birthday, Housewarming,
+     Anniversary, Cocktail Night), venue requirement (Home vs. Rented Space),
+     food/catering preferences, and party theme.
+   - AI Output: Algorithmic budget distribution across Food/Catering, Decor,
+     Music & Entertainment, and Venue/Stay, plus cost per guest calculation,
+     partner deals, and an event itinerary timeline.
+   - Integrated Sources: Swiggy, Zomato, OYO Townhouse, Amazon.
+
+c) Jewelry & Outfit Matcher (Multimodal Vision)
+   - Purpose: Coordinate jewelry sets that complement personal attire and occasion.
+   - User Inputs: Budget, occasion (Wedding, Cocktail, Festive, Office),
+     preferred metal/style (Gold Plated Kundan, Rose Gold Minimalist, Silver 925,
+     Diamonds, Pearls), outfit text description, and OPTIONAL OUTFIT IMAGE UPLOAD.
+   - AI Output: Multimodal computer vision analysis of the outfit's neckline,
+     color tones, and silhouette, paired with matched jewelry pieces (earrings,
+     chokers, bracelets, rings) and expert styling tips.
+   - Integrated Sources: Amazon, Flipkart, Tanishq.
+
+
+3. TECHNICAL ARCHITECTURE
+--------------------------------------------------------------------------------
+- Backend Web Framework: FastAPI (high-performance async ASGI Python framework)
+- AI & Multimodal Engine: Google Gemini 2.5 Flash (`google-genai` SDK) with
+  Pillow for image processing and a built-in algorithmic simulation engine
+  that ensures complete functionality even without a live API key.
+- Frontend: Modern Jinja2 Server-Side Rendered (SSR) HTML5 with Vanilla
+  CSS3 (dark glassmorphism, responsive grid, micro-animations, Google Fonts)
+  and Vanilla JavaScript for asynchronous API communication and live previews.
+- Persistence Layer: Thread-safe file-backed repository (`data/users.json`,
+  `data/history.json`) supporting user accounts, authentication sessions, and
+  recommendation history archives.
+- Security & Auth: `bcrypt` password hashing, JWT Bearer tokens, and secure
+  HTTP-only session cookies.
+
+
+4. KEY API ENDPOINTS
+--------------------------------------------------------------------------------
+- GET  /startup                   : Application and AI healthcheck status
+- POST /register                  : Create a new user account
+- POST /login                     : Authenticate user & issue session token/cookie
+- POST /logout                    : Terminate user session
+- POST /token                     : OAuth2-compatible token issuance
+- GET  /session-info              : Current user authentication state
+- GET  /session-data              : User profile, preferences, and recent plans
+- POST /generate-home             : Generate Home Interior recommendations
+- POST /generate-party            : Generate Party budget allocations & deals
+- POST /generate-jewelry          : Generate Jewelry recommendations (JSON)
+- POST /generate-jewelry-upload   : Generate Jewelry with outfit image file upload
+- GET  /recommendations-details   : Fetch full saved recommendation plan by ID
+- GET  /history                   : Retrieve user recommendation history list
+- DELETE /history/{plan_id}       : Remove a plan from history
+
+
+5. WEB APPLICATION PAGES & USER FLOW
+--------------------------------------------------------------------------------
+  Home Landing Page (/)
+         │
+         ├─── Login / Sign Up (/login, /register)
+         │
+         ├─── User Dashboard (/dashboard)
+         │
+         ├─── Planners:
+         │      ├─ Home Interior Planner   (/planner/home)
+         │      ├─ Party & Event Planner   (/planner/party)
+         │      └─ Jewelry & Outfit Stylist (/planner/jewelry)
+         │
+         ├─── Recommendations Page (/recommendations/{plan_id})
+         │      └─ View budget surplus, items, partner links, and print PDF
+         │
+         └─── Recommendation History (/history-view)
+                └─ Filter by category (Home, Party, Jewelry) and revisit plans
+
+
+6. HOW TO RUN THE PROJECT
+--------------------------------------------------------------------------------
+1. Prerequisites:
+   Python 3.10+ installed with dependencies from `requirements.txt`:
+   `pip install -r requirements.txt`
+
+2. Launch the Application:
+   Execute the runner script:
+   `python run.py`
+
+3. Access the Application:
+   - Web Application: http://127.0.0.1:8000/
+   - API Documentation: http://127.0.0.1:8000/docs
+   - Startup Health Check: http://127.0.0.1:8000/startup
+
+4. (Optional) Configure Live Gemini API:
+   Open the `.env` file and insert your Google Gemini API Key:
+   `GEMINI_API_KEY=your_gemini_api_key_here`
+   (If left blank, the app runs in intelligent simulation fallback mode).
+================================================================================

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}PocketSmart AI — AI-Powered Budget & Recommendation Platform{% endblock %}</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22%20%22100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
+</head>
+<body>
+  <!-- Navigation Header -->
+  <nav class="navbar">
+    <a href="/" class="brand-container">
+      <div class="brand-icon">✨</div>
+      <span class="brand-title">PocketSmart<span style="color:var(--accent-secondary)">.AI</span></span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="/" class="nav-link">Home</a></li>
+      <li><a href="/planner/home" class="nav-link">Home Interior</a></li>
+      <li><a href="/planner/party" class="nav-link">Party Planner</a></li>
+      <li><a href="/planner/jewelry" class="nav-link">Jewelry & Outfit</a></li>
+      <li><a href="/history-view" class="nav-link">History</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      {% if user %}
+        <a href="/dashboard" class="btn btn-secondary">
+          <span>👤</span> {{ user.username }}
+        </a>
+        <button onclick="handleLogout()" class="btn btn-outline" style="padding:0.5rem 1rem;">
+          Logout
+        </button>
+      {% else %}
+        <a href="/login" class="btn btn-secondary">Login</a>
+        <a href="/register" class="btn btn-primary">Sign Up</a>
+      {% endif %}
+    </div>
+  </nav>
+
+  <!-- Main Content Body -->
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="footer">
+    <p>© 2026 PocketSmart AI. Budget-aware intelligence across Home, Event, and Fashion lifestyles.</p>
+    <p style="margin-top:0.4rem; font-size:0.78rem;">Powered by Google Gemini 2.5 Flash &middot; Partners: IKEA, Amazon, Swiggy, Zomato, OYO, Flipkart</p>
+  </footer>
+
+  <script src="/static/js/main.js"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

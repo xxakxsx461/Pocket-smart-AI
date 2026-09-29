@@ -1,0 +1,27 @@
+POCKETSMART AI – SMART BUDGET & RECOMMENDATION ASSISTANT
+
+PHASE 4: PROJECT PLANNING
+
+Plan:
+
+1. Understand the project requirements and reference material.
+2. Set up the FastAPI backend.
+3. Set up the SQLite database.
+4. Implement user registration and login.
+5. Integrate the Gemini API.
+6. Develop the local fallback engine.
+7. Build the Home Interior Planner.
+8. Build the Party Planner.
+9. Build the Jewelry Planner.
+10. Build the recommendation history.
+11. Test the application.
+12. Prepare screenshots and demo video.
+13. Complete the final documentation.
+
+Team Roles:POCKET SMART AI
+
+- Team Captain: Akash C
+- Member 2:Mukesh M 
+- Member 3:Ajay R 
+- Member 4:Balajidharshan S
+- Member 5:Gokul S

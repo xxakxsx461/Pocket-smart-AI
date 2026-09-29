@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+
+{% block title %}Jewelry & Outfit Planner — PocketSmart AI{% endblock %}
+
+{% block content %}
+<div style="max-width: 800px; margin: 0 auto;">
+  <div style="margin-bottom: 2rem;">
+    <a href="/" style="color: var(--text-dim); text-decoration: none; font-size: 0.88rem;">← Back to Hub</a>
+    <div style="display: flex; align-items: center; gap: 0.75rem; margin-top: 0.75rem;">
+      <div class="planner-icon-wrap" style="width:42px; height:42px; font-size:1.3rem; background:rgba(244,63,94,0.15); color:#f43f5e; margin:0;">
+        💎
+      </div>
+      <div>
+        <h1 style="font-size: 2rem;">Jewelry & Outfit Stylist</h1>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">
+          Upload your outfit photo. Multimodal AI matches earrings, chokers, and rings to your neckline and tones.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="glass-panel">
+    <form id="jewelry-planner-form">
+      <!-- Budget Slider -->
+      <div class="form-group">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <label class="form-label" style="margin: 0;">Jewelry Budget</label>
+          <span class="range-display" id="jewelry-budget-display">₹12,000</span>
+        </div>
+        <div class="range-slider-wrap">
+          <input type="range" id="jewelry-budget-slider" class="range-slider" min="2000" max="150000" step="1000" value="12000" data-display="jewelry-budget-display" data-currency="true">
+        </div>
+      </div>
+
+      <!-- Occasion -->
+      <div class="form-group">
+        <label class="form-label">Occasion</label>
+        <select id="occasion-select" class="form-control">
+          <option value="Wedding Reception / Sangeet" selected>Wedding Reception / Sangeet</option>
+          <option value="Cocktail Evening & Gala">Cocktail Evening & Gala</option>
+          <option value="Festive / Diwali Celebration">Festive / Diwali Celebration</option>
+          <option value="Daily Chic Office Wear">Daily Chic Office Wear</option>
+          <option value="Romantic Dinner Date">Romantic Dinner Date</option>
+        </select>
+      </div>
+
+      <!-- Metal & Style -->
+      <div class="form-group">
+        <label class="form-label">Preferred Metal / Style Theme</label>
+        <select id="style-metal-select" class="form-control">
+          <option value="Gold Plated & Traditional Kundan" selected>Gold Plated & Traditional Kundan</option>
+          <option value="Rose Gold Minimalist">Rose Gold Minimalist</option>
+          <option value="Sterling Silver 925 & Oxidised">Sterling Silver 925 & Oxidised</option>
+          <option value="Solitaire & Diamond Accent">Solitaire & Diamond Accent</option>
+          <option value="Freshwater Pearls & Polki">Freshwater Pearls & Polki</option>
+        </select>
+      </div>
+
+      <!-- Outfit Image Upload Dropzone -->
+      <div class="form-group">
+        <label class="form-label">Upload Outfit Photo (Optional — Enables Vision Analysis)</label>
+        <div id="outfit-dropzone" class="dropzone">
+          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">📸</div>
+          <p style="font-weight: 600; color: #fff; margin-bottom: 0.25rem;">
+            Click to upload or drag & drop your outfit photo
+          </p>
+          <p style="font-size: 0.8rem; color: var(--text-dim);">
+            Supports JPG, PNG, WEBP &middot; AI detects neckline, fabric embroidery, and base colors
+          </p>
+          <input type="file" id="outfit-image-input" accept="image/*" style="display: none;">
+          <img id="dropzone-preview" class="dropzone-preview" alt="Outfit Preview">
+        </div>
+      </div>
+
+      <!-- Outfit Text Description -->
+      <div class="form-group">
+        <label class="form-label" for="outfit-notes">Outfit Details (Color, Neckline, Fabric)</label>
+        <input type="text" id="outfit-notes" class="form-control" placeholder="e.g. Royal emerald green silk saree with gold zardosi border and round neckline" value="Emerald green silk saree with gold border">
+      </div>
+
+      <div style="padding-top: 1rem; border-top: 1px solid var(--border-glass); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <div style="display: flex; gap: 0.5rem; align-items: center;">
+          <span style="font-size: 0.8rem; color: var(--text-dim);">Curated Stores:</span>
+          <span class="source-tag source-amazon">Amazon</span>
+          <span class="source-tag source-flipkart">Flipkart</span>
+        </div>
+        <button type="submit" id="jewelry-submit-btn" class="btn btn-primary btn-lg">
+          Match Jewelry Pieces 💎
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.getElementById('jewelry-planner-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = document.getElementById('jewelry-submit-btn');
+  btn.disabled = true;
+  btn.textContent = 'Analyzing Outfit & Styling...';
+
+  const budget = document.getElementById('jewelry-budget-slider').value;
+  const occasion = document.getElementById('occasion-select').value;
+  const preferred_metal_or_style = document.getElementById('style-metal-select').value;
+  const outfit_description = document.getElementById('outfit-notes').value.trim();
+  const fileInput = document.getElementById('outfit-image-input');
+
+  const formData = new FormData();
+  formData.append('budget', budget);
+  formData.append('occasion', occasion);
+  formData.append('preferred_metal_or_style', preferred_metal_or_style);
+  formData.append('outfit_description', outfit_description);
+  
+  if (fileInput.files.length > 0) {
+    formData.append('outfit_image', fileInput.files[0]);
+  }
+
+  try {
+    const res = await fetch('/generate-jewelry-upload', {
+      method: 'POST',
+      body: formData
+    });
+    if (!res.ok) {
+      const err = await res.json();
+      showToast(err.detail || 'Styling failed', 'error');
+      btn.disabled = false;
+      btn.textContent = 'Match Jewelry Pieces 💎';
+    } else {
+      const data = await res.json();
+      showToast('Jewelry matched flawlessly!', 'success');
+      setTimeout(() => {
+        window.location.href = `/recommendations/${data.plan_id}`;
+      }, 500);
+    }
+  } catch (err) {
+    showToast('Network error, please try again.', 'error');
+    btn.disabled = false;
+    btn.textContent = 'Match Jewelry Pieces 💎';
+  }
+});
+</script>
+{% endblock %}

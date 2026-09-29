@@ -1,0 +1,285 @@
+{% extends "base.html" %}
+
+{% block title %}{{ plan.title }} — Recommendation Details | PocketSmart AI{% endblock %}
+
+{% block content %}
+{% if not plan %}
+  <div class="glass-panel" style="text-align: center; padding: 4rem 1rem;">
+    <h2>Plan Not Found</h2>
+    <p style="color: var(--text-muted); margin: 1rem 0 2rem;">The requested recommendation plan could not be located or has expired.</p>
+    <a href="/dashboard" class="btn btn-primary">Return to Dashboard</a>
+  </div>
+{% else %}
+  <!-- Header & Budget Cards -->
+  <div style="margin-bottom: 2rem;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+      <a href="/history-view" style="color: var(--text-dim); text-decoration: none; font-size: 0.88rem;">← Back to History</a>
+      <span style="font-size: 0.82rem; color: var(--text-dim);">Generated on {{ plan.created_at[:10] }}</span>
+    </div>
+
+    <div class="rec-header">
+      <div>
+        {% if plan.planner_type == 'home' %}
+          <span class="badge badge-home">Home Interior Plan</span>
+        {% elif plan.planner_type == 'party' %}
+          <span class="badge badge-party">Party & Event Plan</span>
+        {% else %}
+          <span class="badge badge-jewelry">Jewelry Styling Set</span>
+        {% endif %}
+        <h1 style="font-size: 2.3rem; margin-top: 0.5rem;">{{ plan.title }}</h1>
+      </div>
+
+      <!-- Financial Metrics -->
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <div class="rec-stat-card">
+          <div class="rec-stat-label">Total Budget</div>
+          <div class="rec-stat-val">₹{{ "{:,.0f}".format(plan.budget) }}</div>
+        </div>
+        <div class="rec-stat-card">
+          <div class="rec-stat-label">Estimated Spend</div>
+          <div class="rec-stat-val" style="color: var(--accent-secondary);">
+            ₹{{ "{:,.0f}".format(plan.spent_or_allocated) }}
+          </div>
+        </div>
+        <div class="rec-stat-card">
+          <div class="rec-stat-label">Budget Surplus</div>
+          <div class="rec-stat-val" style="color: var(--accent-emerald);">
+            ₹{{ "{:,.0f}".format(max(0, plan.budget - plan.spent_or_allocated)) }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== HOME INTERIOR DETAILS ==================== -->
+  {% if plan.planner_type == 'home' %}
+    <div class="glass-panel" style="margin-bottom: 2rem;">
+      <h2 style="font-size: 1.4rem; margin-bottom: 0.5rem;">Interior Design Concept</h2>
+      <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.6;">
+        {{ plan.recommendation_summary.style_summary }}
+      </p>
+    </div>
+
+    <h2 style="font-size: 1.6rem; margin-bottom: 1.25rem;">Curated Room Product Catalog</h2>
+    <div style="display: flex; flex-direction: column; gap: 2rem;">
+      {% if plan.recommendation_summary.room_breakdown %}
+        {% for room_name, products in plan.recommendation_summary.room_breakdown.items() %}
+        <div>
+          <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: #a5b4fc; display: flex; align-items: center; gap: 0.5rem;">
+            <span>📍</span> {{ room_name }} ({{ products|length }} Items)
+          </h3>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem;">
+            {% for prod in products %}
+              <div class="product-card">
+                <div>
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                    <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-dim); font-weight: 700;">
+                      {{ prod.category }}
+                    </span>
+                    {% if prod.source == 'IKEA' %}
+                      <span class="source-tag source-ikea">IKEA</span>
+                    {% else %}
+                      <span class="source-tag source-amazon">Amazon</span>
+                    {% endif %}
+                  </div>
+                  <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem; line-height: 1.4;">{{ prod.name }}</h4>
+                  <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; margin-bottom: 1rem;">
+                    {{ prod.reasoning }}
+                  </p>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 0.75rem; border-top: 1px solid var(--border-glass);">
+                  <div class="product-price">₹{{ "{:,.0f}".format(prod.estimated_price) }}</div>
+                  <a href="{{ prod.product_url or '#' }}" target="_blank" rel="noopener" class="btn btn-outline" style="padding: 0.35rem 0.8rem; font-size: 0.8rem;">
+                    Find Item ↗
+                  </a>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+
+  <!-- ==================== PARTY EVENT DETAILS ==================== -->
+  {% elif plan.planner_type == 'party' %}
+    <div class="glass-panel" style="margin-bottom: 2rem;">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <h2 style="font-size: 1.4rem; margin-bottom: 0.35rem;">Event Overview</h2>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">
+            Targeting {{ plan.recommendation_summary.guest_count }} attendees at an estimated 
+            <strong style="color: #fff;">₹{{ "{:,.0f}".format(plan.recommendation_summary.cost_per_guest) }} per person</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category Budget Allocation -->
+    <h2 style="font-size: 1.6rem; margin-bottom: 1.25rem;">Budget Allocation by Category</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin-bottom: 2.5rem;">
+      {% if plan.recommendation_summary.categories %}
+        {% for cat in plan.recommendation_summary.categories %}
+        <div class="glass-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+            <h4 style="font-size: 1.1rem;">{{ cat.category }}</h4>
+            <span style="font-weight: 700; color: #a5b4fc;">{{ cat.percentage }}%</span>
+          </div>
+          <div class="product-price" style="margin-bottom: 0.75rem;">₹{{ "{:,.0f}".format(cat.allocated_budget) }}</div>
+          
+          <!-- Category Suggestions -->
+          <ul style="list-style: none; margin-bottom: 1rem;">
+            {% for item in cat.items_or_suggestions %}
+              <li style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.4rem; display: flex; align-items: flex-start; gap: 0.4rem;">
+                <span style="color: var(--accent-primary);">•</span> {{ item }}
+              </li>
+            {% endfor %}
+          </ul>
+
+          <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+            {% for src in cat.sources %}
+              {% if src == 'Swiggy' %}
+                <span class="source-tag source-swiggy">Swiggy</span>
+              {% elif src == 'Zomato' %}
+                <span class="source-tag source-zomato">Zomato</span>
+              {% elif src == 'OYO' %}
+                <span class="source-tag source-oyo">OYO</span>
+              {% else %}
+                <span class="source-tag source-amazon">{{ src }}</span>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+
+    <!-- Partner Recommendations & Deals -->
+    <h2 style="font-size: 1.6rem; margin-bottom: 1.25rem;">Partner Deals & Instant Booking</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.25rem; margin-bottom: 2.5rem;">
+      {% for partner in plan.recommendation_summary.partner_recommendations %}
+        <div class="glass-card" style="border-left: 4px solid var(--accent-primary);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+            {% if partner.partner == 'Swiggy' %}
+              <span class="source-tag source-swiggy">Swiggy Deals</span>
+            {% elif partner.partner == 'Zomato' %}
+              <span class="source-tag source-zomato">Zomato Deals</span>
+            {% elif partner.partner == 'OYO' %}
+              <span class="source-tag source-oyo">OYO Townhouse</span>
+            {% else %}
+              <span class="source-tag source-amazon">{{ partner.partner }}</span>
+            {% endif %}
+            <span style="font-weight: 700; color: #fff;">₹{{ "{:,.0f}".format(partner.estimated_cost) }}</span>
+          </div>
+          <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem;">{{ partner.deal_title }}</h4>
+          <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1rem;">
+            {{ partner.description }}
+          </p>
+          <a href="{{ partner.action_url or '#' }}" target="_blank" rel="noopener" class="btn btn-outline" style="padding: 0.4rem 0.9rem; font-size: 0.82rem;">
+            Order / Book on {{ partner.partner }} ↗
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- Timeline Schedule -->
+    {% if plan.recommendation_summary.itinerary_timeline %}
+      <div class="glass-panel" style="margin-bottom: 2rem;">
+        <h3 style="font-size: 1.3rem; margin-bottom: 1rem;">Event Itinerary & Timeline</h3>
+        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+          {% for event_step in plan.recommendation_summary.itinerary_timeline %}
+            <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 0.95rem; color: var(--text-muted);">
+              <span style="color: var(--accent-amber); font-weight: 700;">⏱</span>
+              <span>{{ event_step }}</span>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+  <!-- ==================== JEWELRY DETAILS ==================== -->
+  {% elif plan.planner_type == 'jewelry' %}
+    {% if plan.recommendation_summary.outfit_analysis %}
+      <div class="glass-panel" style="margin-bottom: 2rem; border-left: 4px solid var(--accent-rose);">
+        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+          <span style="font-size: 1.2rem;">👁️</span>
+          <h3 style="font-size: 1.25rem;">Gemini AI Outfit & Pairing Analysis</h3>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.98rem; line-height: 1.6;">
+          {{ plan.recommendation_summary.outfit_analysis }}
+        </p>
+      </div>
+    {% endif %}
+
+    <h2 style="font-size: 1.6rem; margin-bottom: 1.25rem;">Coordinated Jewelry Ensemble</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1.25rem; margin-bottom: 2.5rem;">
+      {% if plan.recommendation_summary.jewelry_pieces %}
+        {% for piece in plan.recommendation_summary.jewelry_pieces %}
+        <div class="product-card">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+              <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-dim); font-weight: 700;">
+                {{ piece.type }}
+              </span>
+              {% if piece.source == 'Amazon' %}
+                <span class="source-tag source-amazon">Amazon</span>
+              {% else %}
+                <span class="source-tag source-flipkart">Flipkart</span>
+              {% endif %}
+            </div>
+            <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem; line-height: 1.4;">{{ piece.name }}</h4>
+            <div style="font-size: 0.8rem; color: #a5b4fc; margin-bottom: 0.5rem;">
+              Material: {{ piece.metal_or_material }}
+            </div>
+            <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; margin-bottom: 1rem;">
+              {{ piece.matching_reason }}
+            </p>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 0.75rem; border-top: 1px solid var(--border-glass);">
+            <div class="product-price">₹{{ "{:,.0f}".format(piece.estimated_price) }}</div>
+            <a href="{{ piece.product_url or '#' }}" target="_blank" rel="noopener" class="btn btn-outline" style="padding: 0.35rem 0.8rem; font-size: 0.8rem;">
+              View on {{ piece.source }} ↗
+            </a>
+          </div>
+        </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+
+    <!-- Styling Advice -->
+    {% if plan.recommendation_summary.styling_advice %}
+      <div class="glass-panel" style="margin-bottom: 2rem;">
+        <h3 style="font-size: 1.3rem; margin-bottom: 1rem;">Fashion & Styling Rules</h3>
+        <ul style="list-style: none;">
+          {% for tip in plan.recommendation_summary.styling_advice %}
+            <li style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;">
+              <span style="color: var(--accent-rose);">✦</span> {{ tip }}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  {% endif %}
+
+  <!-- Strategic AI Tips (Common to all planners) -->
+  {% if plan.recommendation_summary.ai_tips %}
+    <div class="ai-tips-box">
+      <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+        <span>💡</span> PocketSmart AI Budget & Execution Tips
+      </h3>
+      <ul style="list-style: none;">
+        {% for tip in plan.recommendation_summary.ai_tips %}
+          <li style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 0.4rem; display: flex; align-items: flex-start; gap: 0.5rem;">
+            <span style="color: var(--accent-secondary);">✓</span> {{ tip }}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+
+  <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 3rem;">
+    <button onclick="window.print()" class="btn btn-secondary">🖨️ Print / Save PDF</button>
+    <a href="/dashboard" class="btn btn-primary">Return to Dashboard</a>
+  </div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard — PocketSmart AI{% endblock %}
+
+{% block content %}
+<div class="glass-panel" style="margin-bottom: 2.5rem;">
+  <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+    <div>
+      <span class="badge badge-ai">Active Workspace</span>
+      <h1 style="font-size: 2.2rem; margin-top: 0.5rem;">
+        Welcome, {{ user.full_name or user.username if user else 'Guest User' }}!
+      </h1>
+      <p style="color: var(--text-muted); font-size: 0.95rem;">
+        Track and generate lifestyle budgets curated by Gemini AI.
+      </p>
+    </div>
+    <div style="display: flex; gap: 0.75rem;">
+      <a href="/planner/home" class="btn btn-primary">+ New Home Plan</a>
+      <a href="/planner/party" class="btn btn-outline">+ New Party Plan</a>
+      <a href="/planner/jewelry" class="btn btn-secondary">+ New Jewelry Set</a>
+    </div>
+  </div>
+</div>
+
+<!-- Stats Counter Grid -->
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem;">
+  <div class="glass-card" style="text-align: center;">
+    <div style="font-size: 2.2rem; font-weight: 800; color: #fff; font-family: 'Outfit';">
+      {{ plans|length }}
+    </div>
+    <div style="color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; font-weight: 600; margin-top: 0.35rem;">
+      Saved Recommendation Plans
+    </div>
+  </div>
+  <div class="glass-card" style="text-align: center;">
+    <div style="font-size: 2.2rem; font-weight: 800; color: var(--accent-secondary); font-family: 'Outfit';">
+      3
+    </div>
+    <div style="color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; font-weight: 600; margin-top: 0.35rem;">
+      Active Modules Available
+    </div>
+  </div>
+  <div class="glass-card" style="text-align: center;">
+    <div style="font-size: 2.2rem; font-weight: 800; color: var(--accent-emerald); font-family: 'Outfit';">
+      6
+    </div>
+    <div style="color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; font-weight: 600; margin-top: 0.35rem;">
+      Integrated Market Catalogs
+    </div>
+  </div>
+</div>
+
+<!-- Recent Saved Plans Section -->
+<div class="glass-panel">
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+    <h2 style="font-size: 1.5rem;">Recent Recommendation Plans</h2>
+    <a href="/history-view" style="color: var(--accent-primary); text-decoration: none; font-weight: 600; font-size: 0.9rem;">
+      View All History →
+    </a>
+  </div>
+
+  {% if plans and plans|length > 0 %}
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem;">
+      {% for p in plans %}
+        <div class="glass-card">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
+            {% if p.planner_type == 'home' %}
+              <span class="badge badge-home">Home Interior</span>
+            {% elif p.planner_type == 'party' %}
+              <span class="badge badge-party">Party Event</span>
+            {% else %}
+              <span class="badge badge-jewelry">Jewelry Styling</span>
+            {% endif %}
+            <span style="font-size: 0.8rem; color: var(--text-dim);">
+              {{ p.created_at[:10] }}
+            </span>
+          </div>
+          <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem;">{{ p.title }}</h3>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid var(--border-glass);">
+            <div>
+              <div style="font-size: 0.75rem; color: var(--text-dim);">BUDGET ALLOCATED</div>
+              <div style="font-weight: 700; color: #fff;">₹{{ "{:,.0f}".format(p.budget) }}</div>
+            </div>
+            <a href="/recommendations/{{ p.id }}" class="btn btn-outline" style="padding: 0.4rem 0.85rem; font-size: 0.82rem;">
+              View Plan →
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div style="text-align: center; padding: 3rem 1rem;">
+      <div style="font-size: 3rem; margin-bottom: 1rem;">📋</div>
+      <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">No Plans Created Yet</h3>
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">
+        Select one of the planners below to generate your first AI-curated budget breakdown.
+      </p>
+      <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <a href="/planner/home" class="btn btn-primary">Start Home Plan</a>
+        <a href="/planner/party" class="btn btn-outline">Start Party Plan</a>
+        <a href="/planner/jewelry" class="btn btn-secondary">Start Jewelry Plan</a>
+      </div>
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

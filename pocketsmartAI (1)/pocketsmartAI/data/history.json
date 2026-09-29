@@ -1,0 +1,1221 @@
+[
+  {
+    "id": "party_afa25ee9",
+    "user_id": null,
+    "planner_type": "party",
+    "title": "Cocktail Evening & Social for 30 Guests",
+    "budget": 40000.0,
+    "spent_or_allocated": 40000.0,
+    "created_at": "2026-09-22T11:54:33.934724+00:00",
+    "input_parameters": {
+      "budget": 40000.0,
+      "guest_count": 30,
+      "event_type": "Cocktail Evening & Social",
+      "venue_required": true,
+      "food_preference": "Continental & Italian Pizza / Pasta Spread",
+      "theme_or_vibe": "Cozy Fairy Light Acoustic"
+    },
+    "recommendation_summary": {
+      "plan_id": "party_afa25ee9",
+      "total_budget": 40000.0,
+      "guest_count": 30,
+      "cost_per_guest": 1333.33,
+      "categories": [
+        {
+          "category": "Food & Catering",
+          "allocated_budget": 16000.0,
+          "percentage": 40.0,
+          "sources": [
+            "Swiggy",
+            "Zomato"
+          ],
+          "items_or_suggestions": [
+            "Continental & Italian Pizza / Pasta Spread party platter spread",
+            "Live finger food & cocktail appetizers counter",
+            "Dessert assortment & mocktail bar"
+          ]
+        },
+        {
+          "category": "Venue & Space Rental",
+          "allocated_budget": 10000.0,
+          "percentage": 25.0,
+          "sources": [
+            "OYO",
+            "Airbnb"
+          ],
+          "items_or_suggestions": [
+            "Private party villa or boutique celebration suite booking",
+            "Soundproofed gathering lounge with audio setup"
+          ]
+        },
+        {
+          "category": "Decor & Ambience",
+          "allocated_budget": 6000.0,
+          "percentage": 15.0,
+          "sources": [
+            "Amazon",
+            "Blinkit"
+          ],
+          "items_or_suggestions": [
+            "Thematic fairy lights, balloons & backdrop photobooth",
+            "Table styling, aromatic candles & themed coasters"
+          ]
+        },
+        {
+          "category": "Music & Entertainment",
+          "allocated_budget": 4800.0,
+          "percentage": 12.0,
+          "sources": [
+            "Spotify",
+            "Local DJ"
+          ],
+          "items_or_suggestions": [
+            "Curated playlist subscription & wireless surround speakers",
+            "Interactive party games & karaoke mic setup"
+          ]
+        },
+        {
+          "category": "Essentials & Logistics",
+          "allocated_budget": 3200.0,
+          "percentage": 8.0,
+          "sources": [
+            "Blinkit",
+            "Amazon"
+          ],
+          "items_or_suggestions": [
+            "Eco-friendly disposables, ice coolers, and cleanup supplies"
+          ]
+        }
+      ],
+      "partner_recommendations": [
+        {
+          "partner": "Swiggy",
+          "service_type": "Catering / Bulk Order",
+          "deal_title": "Swiggy Party Platters & Mini-Buffet Deals",
+          "estimated_cost": 14000.0,
+          "description": "Pre-order curated bulk party packs with scheduled doorstep delivery.",
+          "action_url": "https://www.swiggy.com"
+        },
+        {
+          "partner": "Zomato",
+          "service_type": "Dining & Drinks",
+          "deal_title": "Zomato Gourmet & Beverage Mixers",
+          "estimated_cost": 4000.0,
+          "description": "Freshly prepared artisanal starters and craft refreshment coolers.",
+          "action_url": "https://www.zomato.com"
+        },
+        {
+          "partner": "OYO",
+          "service_type": "Celebration Stay / Banquet",
+          "deal_title": "OYO Townhouse Celebration Lounges",
+          "estimated_cost": 10000.0,
+          "description": "Affordable private party suites and terrace halls with hospitality support.",
+          "action_url": "https://www.oyorooms.com"
+        }
+      ],
+      "itinerary_timeline": [
+        "6:00 PM — Venue check-in, decor arrangement & soundcheck",
+        "7:00 PM — Guest arrivals, welcome refreshments & ice-breaker games",
+        "8:30 PM — Food catering arrival & dinner spread opening",
+        "9:45 PM — Music, dancing, or signature event activity",
+        "11:00 PM — Cake cutting / farewell party favours distribution"
+      ],
+      "ai_tips": [
+        "Place catering orders at least 24 hours ahead on Swiggy/Zomato to lock group pricing.",
+        "Keep 10% of total budget reserved for last-minute refreshment refills via quick-commerce.",
+        "Prepare a collaborative Spotify queue to keep guests engaged throughout the night."
+      ],
+      "created_at": "2026-09-22T11:54:33.934724+00:00"
+    }
+  },
+  {
+    "id": "home_4202f075",
+    "user_id": null,
+    "planner_type": "home",
+    "title": "Contemporary Luxury Interior (Living Room, Bedroom, Dining Room, Home Office, Balcony Lounge)",
+    "budget": 20000.0,
+    "spent_or_allocated": 18680.0,
+    "created_at": "2026-09-22T11:53:46.782733+00:00",
+    "input_parameters": {
+      "budget": 20000.0,
+      "rooms": [
+        "Living Room",
+        "Bedroom",
+        "Dining Room",
+        "Home Office",
+        "Balcony Lounge"
+      ],
+      "room_quantities": {
+        "Living Room": 1,
+        "Bedroom": 1,
+        "Dining Room": 1,
+        "Home Office": 1,
+        "Balcony Lounge": 1
+      },
+      "style_preference": "Contemporary Luxury",
+      "color_palette": "Warm Oak & Sage Green",
+      "special_requirements": ""
+    },
+    "recommendation_summary": {
+      "plan_id": "home_4202f075",
+      "total_budget": 20000.0,
+      "estimated_total_cost": 18680.0,
+      "remaining_budget": 1320.0,
+      "style_summary": "A tailored Contemporary Luxury theme featuring Warm Oak & Sage Green, optimizing functional space across 5 room(s).",
+      "room_breakdown": {
+        "Living Room": [
+          {
+            "id": "prod_afd75e",
+            "name": "Contemporary Luxury Modular 3-Seater Sofa",
+            "category": "Furniture",
+            "room": "Living Room",
+            "estimated_price": 1600.0,
+            "source": "IKEA",
+            "product_url": "https://www.ikea.com/search?q=Modular+3-Seater+Sofa",
+            "reasoning": "Sleek ergonomic sofa aligned with minimalist aesthetics",
+            "image_url": null
+          },
+          {
+            "id": "prod_153d15",
+            "name": "Contemporary Luxury Nordic Oak Coffee Table",
+            "category": "Furniture",
+            "room": "Living Room",
+            "estimated_price": 600.0,
+            "source": "Amazon",
+            "product_url": "https://www.amazon.com/search?q=Nordic+Oak+Coffee+Table",
+            "reasoning": "Warm wood accent providing natural contrast",
+            "image_url": null
+          },
+          {
+            "id": "prod_265ce6",
+            "name": "Contemporary Luxury Warm Dimmable Floor Lamp",
+            "category": "Lighting",
+            "room": "Living Room",
+            "estimated_price": 400.0,
+            "source": "Amazon",
+            "product_url": "https://www.amazon.com/search?q=Warm+Dimmable+Floor+Lamp",
+            "reasoning": "Ambient indirect glow for relaxation",
+            "image_url": null
+          },
+          {
+            "id": "prod_ed7ea4",
+            "name": "Contemporary Luxury Geometric Wool Blend Rug",
+            "category": "Textiles",
+            "room": "Living Room",
+            "estimated_price": 600.0,
+            "source": "IKEA",
+            "product_url": "https://www.ikea.com/search?q=Geometric+Wool+Blend+Rug",
+            "reasoning": "Ties room palette together with acoustic dampening",
+            "image_url": null
+          },
+          {
+            "id": "prod_e522a6",
+            "name": "Contemporary Luxury Floating Wall Shelving Unit",
+            "category": "Storage",
+            "room": "Living Room",
+            "estimated_price": 480.0,
+            "source": "IKEA",
+            "product_url": "https://www.ikea.com/search?q=Floating+Wall+Shelving+Unit",
+            "reasoning": "Clean open storage to display select curated decor",
+            "image_url": null
+          }
+        ],
+        "Bedroom": [
+          {
+            "id": "prod_5519fa",
+            "name": "Contemporary Luxury Queen Bed Frame with Storage",
+            "category": "Furniture",
+            "room": "Bedroom",
+            "estimated_price": 1680.0,
+            "source": "IKEA",
+            "product_url": "https://www.ikea.com/search?q=Queen+Bed+Frame+with+Storage",
+            "reasoning": "Space-saving hydraulic underbed storage",
+            "image_url": null
+          },
+          {
+            "id": "prod_322df3",
+            "name": "Contemporary Luxury Memory Foam Ergonomic Mattress",
+            "category": "Furniture",
+            "room": "Bedroom",
+            "estimated_price": 1000.0,
+            "source": "Amazon",
+            "product_url": "https://www.amazon.com/search?q=Memory+Foam+Ergonomic+Mattress",
+            "reasoning": "Orthopedic support for optimal sleep hygiene",
+            "image_url": null
+          },
+          {
+            "id": "prod_596cbf",
+            "name": "Contemporary Luxury Minimalist Bedside Tables (Set of 2)",
+            "category": "Furniture",
+            "room": "Bedroom",
+            "estimated_price": 480.0,
+            "source": "Amazon",
+            "product_url": "https://www.amazon.com/search?q=Minimalist+Bedside+Tables+(Set+of+2)",
+            "reasoning": "Compact nightstands with cord management",
+            "image_url": null
+          },
+          {
+            "id": "prod_9e370a",
+            "name": "Contemporary Luxury Blackout Linen Curtains",
+            "category": "Textiles",
+            "room": "Bedroom",
+            "estimated_price": 320.0,
+            "source": "Amazon",
+            "product_url": "https://www.amazon.com/search?q=Blackout+Linen+Curtains",
+            "reasoning": "Thermal insulation and total light blocking",
+            "image_url": null
+          },
+          {
+            "id": "prod_6bdc67",
+            "name": "Contemporary Luxury Soft Ambient Pendant Light",
+            "category": "Lighting",
+            "room": "Bedroom",
+            "estimated_price": 320.0,
+            "source": "IKEA",
+            "product_url": "https://www.ikea.com/search?q=Soft+Ambient+Pendant+Light",
+            "reasoning": "Calming illumination for wind-down hours",
+            "image_url": null
+          }
+        ],
+        "Dining Room": [
+          {
+            "id": "prod_c296c4",
+            "name": "Contemporary Luxury Extendable 4-6 Seater Dining Table",
+            "category": "Furniture",
+            "room": "Dining Room",
+            "estimated_price": 1800.0,
+            "source": "IKEA",
+            "product_url": "https://www.ikea.com/search?q=Extendable+4-6+Seater+Dining+Table",
+            "reasoning": "Flexible seating for hosting gatherings",
+            "image_url": null
+          },
+          {
+            "id": "prod_eb9f23",
+            "name": "Contemporary Luxury Ergonomic Dining Chairs (Set of 4)",
+            "category": "Furniture",
+            "room": "Dining Room",
+            "estimated_price": 1200.0,
+            "source": "Amazon",
+            "product_url": "https://www.amazon.com/search?q=Ergonomic+Dining+Chairs+(Set+of+4)",
+            "reasoning": "Comfortable back support with durable upholstery",
+            "image_url": null
+          },
+          {
+            "id": "prod_fd5a69",
+            "name": "Contemporary Luxury Over-Table Linear Chandelier",
+            "category": "Lighting",
+            "room": "Dining Room",
+            "estimated_price": 600.0,
+            "source": "Amazon",
+            "product_url": "https://www.amazon.com/search?q=Over-Table+Linear+Chandelier",
+            "reasoning": "Focal dining lighting with warm-tone bulbs",
+            "image_url": null
+          },
+          {
+            "id": "prod_63d6ec",
+            "name": "Contemporary Luxury Woven Jute Table Runner & Placemats",
+            "category": "Decor",
+            "room": "Dining Room",
+            "estimated_price": 200.0,
+            "source": "Amazon",
+            "product_url": "https://www.amazon.com/search?q=Woven+Jute+Table+Runner+&+Placemats",
+            "reasoning": "Organic texture and table surface protection",
+            "image_url": null
+          }
+        ],
+        "Home Office": [
+          {
+            "id": "prod_84f231",
+            "name": "Contemporary Luxury Height-Adjustable Standing Desk",
+            "category": "Furniture",
+            "room": "Home Office",
+            "estimated_price": 1800.0,
+            "source": "Amazon",
+            "product_url": "https://www.amazon.com/search?q=Height-Adjustable+Standing+Desk",
+            "reasoning": "Electric sit-stand desk promoting active posture",
+            "image_url": null
+          },
+          {
+            "id": "prod_81ead3",
+            "name": "Contemporary Luxury High-Back Ergonomic Mesh Chair",
+            "category": "Furniture",
+            "room": "Home Office",
+            "estimated_price": 1200.0,
+            "source": "Amazon",
+            "product_url": "https://www.amazon.com/search?q=High-Back+Ergonomic+Mesh+Chair",
+            "reasoning": "Lumbar support for 8+ hour productivity",
+            "image_url": null
+          },
+          {
+            "id": "prod_e1259e",
+            "name": "Contemporary Luxury LED Screenbar Desk Lamp with Auto-Dimming",
+            "category": "Lighting",
+            "room": "Home Office",
+            "estimated_price": 400.0,
+            "source": "Amazon",
+            "product_url": "https://www.amazon.com/search?q=LED+Screenbar+Desk+Lamp+with+Auto-Dimming",
+            "reasoning": "Glare-free monitor light reducing eye strain",
+            "image_url": null
+          },
+          {
+            "id": "prod_597357",
+            "name": "Contemporary Luxury Cable Management Spine & Tray",
+            "category": "Storage",
+            "room": "Home Office",
+            "estimated_price": 200.0,
+            "source": "IKEA",
+            "product_url": "https://www.ikea.com/search?q=Cable+Management+Spine+&+Tray",
+            "reasoning": "Keeps power bricks and cords clutter-free",
+            "image_url": null
+          }
+        ],
+        "Balcony Lounge": [
+          {
+            "id": "prod_2b7591",
+            "name": "Contemporary Luxury Multi-purpose Accent Cabinet",
+            "category": "Storage",
+            "room": "Balcony Lounge",
+            "estimated_price": 1400.0,
+            "source": "IKEA",
+            "product_url": "https://www.ikea.com/search?q=Multi-purpose+Accent+Cabinet",
+            "reasoning": "Versatile multi-tier organizer",
+            "image_url": null
+          },
+          {
+            "id": "prod_3831c2",
+            "name": "Contemporary Luxury Statement Accent Armchair",
+            "category": "Furniture",
+            "room": "Balcony Lounge",
+            "estimated_price": 1400.0,
+            "source": "Amazon",
+            "product_url": "https://www.amazon.com/search?q=Statement+Accent+Armchair",
+            "reasoning": "Comfortable reading or lounge seat",
+            "image_url": null
+          },
+          {
+            "id": "prod_0d93e8",
+            "name": "Contemporary Luxury Warm Ambient LED Light Strip & Fixture",
+            "category": "Lighting",
+            "room": "Balcony Lounge",
+            "estimated_price": 600.0,
+            "source": "Amazon",
+            "product_url": "https://www.amazon.com/search?q=Warm+Ambient+LED+Light+Strip+&+Fixture",
+            "reasoning": "Custom mood accent lighting",
+            "image_url": null
+          },
+          {
+            "id": "prod_bd669a",
+            "name": "Contemporary Luxury Botanical Ceramic Planter & Stand",
+            "category": "Decor",
+            "room": "Balcony Lounge",
+            "estimated_price": 400.0,
+            "source": "IKEA",
+            "product_url": "https://www.ikea.com/search?q=Botanical+Ceramic+Planter+&+Stand",
+            "reasoning": "Adds biophilic touch to revitalize the atmosphere",
+            "image_url": null
+          }
+        ]
+      },
+      "all_products": [
+        {
+          "id": "prod_afd75e",
+          "name": "Contemporary Luxury Modular 3-Seater Sofa",
+          "category": "Furniture",
+          "room": "Living Room",
+          "estimated_price": 1600.0,
+          "source": "IKEA",
+          "product_url": "https://www.ikea.com/search?q=Modular+3-Seater+Sofa",
+          "reasoning": "Sleek ergonomic sofa aligned with minimalist aesthetics",
+          "image_url": null
+        },
+        {
+          "id": "prod_153d15",
+          "name": "Contemporary Luxury Nordic Oak Coffee Table",
+          "category": "Furniture",
+          "room": "Living Room",
+          "estimated_price": 600.0,
+          "source": "Amazon",
+          "product_url": "https://www.amazon.com/search?q=Nordic+Oak+Coffee+Table",
+          "reasoning": "Warm wood accent providing natural contrast",
+          "image_url": null
+        },
+        {
+          "id": "prod_265ce6",
+          "name": "Contemporary Luxury Warm Dimmable Floor Lamp",
+          "category": "Lighting",
+          "room": "Living Room",
+          "estimated_price": 400.0,
+          "source": "Amazon",
+          "product_url": "https://www.amazon.com/search?q=Warm+Dimmable+Floor+Lamp",
+          "reasoning": "Ambient indirect glow for relaxation",
+          "image_url": null
+        },
+        {
+          "id": "prod_ed7ea4",
+          "name": "Contemporary Luxury Geometric Wool Blend Rug",
+          "category": "Textiles",
+          "room": "Living Room",
+          "estimated_price": 600.0,
+          "source": "IKEA",
+          "product_url": "https://www.ikea.com/search?q=Geometric+Wool+Blend+Rug",
+          "reasoning": "Ties room palette together with acoustic dampening",
+          "image_url": null
+        },
+        {
+          "id": "prod_e522a6",
+          "name": "Contemporary Luxury Floating Wall Shelving Unit",
+          "category": "Storage",
+          "room": "Living Room",
+          "estimated_price": 480.0,
+          "source": "IKEA",
+          "product_url": "https://www.ikea.com/search?q=Floating+Wall+Shelving+Unit",
+          "reasoning": "Clean open storage to display select curated decor",
+          "image_url": null
+        },
+        {
+          "id": "prod_5519fa",
+          "name": "Contemporary Luxury Queen Bed Frame with Storage",
+          "category": "Furniture",
+          "room": "Bedroom",
+          "estimated_price": 1680.0,
+          "source": "IKEA",
+          "product_url": "https://www.ikea.com/search?q=Queen+Bed+Frame+with+Storage",
+          "reasoning": "Space-saving hydraulic underbed storage",
+          "image_url": null
+        },
+        {
+          "id": "prod_322df3",
+          "name": "Contemporary Luxury Memory Foam Ergonomic Mattress",
+          "category": "Furniture",
+          "room": "Bedroom",
+          "estimated_price": 1000.0,
+          "source": "Amazon",
+          "product_url": "https://www.amazon.com/search?q=Memory+Foam+Ergonomic+Mattress",
+          "reasoning": "Orthopedic support for optimal sleep hygiene",
+          "image_url": null
+        },
+        {
+          "id": "prod_596cbf",
+          "name": "Contemporary Luxury Minimalist Bedside Tables (Set of 2)",
+          "category": "Furniture",
+          "room": "Bedroom",
+          "estimated_price": 480.0,
+          "source": "Amazon",
+          "product_url": "https://www.amazon.com/search?q=Minimalist+Bedside+Tables+(Set+of+2)",
+          "reasoning": "Compact nightstands with cord management",
+          "image_url": null
+        },
+        {
+          "id": "prod_9e370a",
+          "name": "Contemporary Luxury Blackout Linen Curtains",
+          "category": "Textiles",
+          "room": "Bedroom",
+          "estimated_price": 320.0,
+          "source": "Amazon",
+          "product_url": "https://www.amazon.com/search?q=Blackout+Linen+Curtains",
+          "reasoning": "Thermal insulation and total light blocking",
+          "image_url": null
+        },
+        {
+          "id": "prod_6bdc67",
+          "name": "Contemporary Luxury Soft Ambient Pendant Light",
+          "category": "Lighting",
+          "room": "Bedroom",
+          "estimated_price": 320.0,
+          "source": "IKEA",
+          "product_url": "https://www.ikea.com/search?q=Soft+Ambient+Pendant+Light",
+          "reasoning": "Calming illumination for wind-down hours",
+          "image_url": null
+        },
+        {
+          "id": "prod_c296c4",
+          "name": "Contemporary Luxury Extendable 4-6 Seater Dining Table",
+          "category": "Furniture",
+          "room": "Dining Room",
+          "estimated_price": 1800.0,
+          "source": "IKEA",
+          "product_url": "https://www.ikea.com/search?q=Extendable+4-6+Seater+Dining+Table",
+          "reasoning": "Flexible seating for hosting gatherings",
+          "image_url": null
+        },
+        {
+          "id": "prod_eb9f23",
+          "name": "Contemporary Luxury Ergonomic Dining Chairs (Set of 4)",
+          "category": "Furniture",
+          "room": "Dining Room",
+          "estimated_price": 1200.0,
+          "source": "Amazon",
+          "product_url": "https://www.amazon.com/search?q=Ergonomic+Dining+Chairs+(Set+of+4)",
+          "reasoning": "Comfortable back support with durable upholstery",
+          "image_url": null
+        },
+        {
+          "id": "prod_fd5a69",
+          "name": "Contemporary Luxury Over-Table Linear Chandelier",
+          "category": "Lighting",
+          "room": "Dining Room",
+          "estimated_price": 600.0,
+          "source": "Amazon",
+          "product_url": "https://www.amazon.com/search?q=Over-Table+Linear+Chandelier",
+          "reasoning": "Focal dining lighting with warm-tone bulbs",
+          "image_url": null
+        },
+        {
+          "id": "prod_63d6ec",
+          "name": "Contemporary Luxury Woven Jute Table Runner & Placemats",
+          "category": "Decor",
+          "room": "Dining Room",
+          "estimated_price": 200.0,
+          "source": "Amazon",
+          "product_url": "https://www.amazon.com/search?q=Woven+Jute+Table+Runner+&+Placemats",
+          "reasoning": "Organic texture and table surface protection",
+          "image_url": null
+        },
+        {
+          "id": "prod_84f231",
+          "name": "Contemporary Luxury Height-Adjustable Standing Desk",
+          "category": "Furniture",
+          "room": "Home Office",
+          "estimated_price": 1800.0,
+          "source": "Amazon",
+          "product_url": "https://www.amazon.com/search?q=Height-Adjustable+Standing+Desk",
+          "reasoning": "Electric sit-stand desk promoting active posture",
+          "image_url": null
+        },
+        {
+          "id": "prod_81ead3",
+          "name": "Contemporary Luxury High-Back Ergonomic Mesh Chair",
+          "category": "Furniture",
+          "room": "Home Office",
+          "estimated_price": 1200.0,
+          "source": "Amazon",
+          "product_url": "https://www.amazon.com/search?q=High-Back+Ergonomic+Mesh+Chair",
+          "reasoning": "Lumbar support for 8+ hour productivity",
+          "image_url": null
+        },
+        {
+          "id": "prod_e1259e",
+          "name": "Contemporary Luxury LED Screenbar Desk Lamp with Auto-Dimming",
+          "category": "Lighting",
+          "room": "Home Office",
+          "estimated_price": 400.0,
+          "source": "Amazon",
+          "product_url": "https://www.amazon.com/search?q=LED+Screenbar+Desk+Lamp+with+Auto-Dimming",
+          "reasoning": "Glare-free monitor light reducing eye strain",
+          "image_url": null
+        },
+        {
+          "id": "prod_597357",
+          "name": "Contemporary Luxury Cable Management Spine & Tray",
+          "category": "Storage",
+          "room": "Home Office",
+          "estimated_price": 200.0,
+          "source": "IKEA",
+          "product_url": "https://www.ikea.com/search?q=Cable+Management+Spine+&+Tray",
+          "reasoning": "Keeps power bricks and cords clutter-free",
+          "image_url": null
+        },
+        {
+          "id": "prod_2b7591",
+          "name": "Contemporary Luxury Multi-purpose Accent Cabinet",
+          "category": "Storage",
+          "room": "Balcony Lounge",
+          "estimated_price": 1400.0,
+          "source": "IKEA",
+          "product_url": "https://www.ikea.com/search?q=Multi-purpose+Accent+Cabinet",
+          "reasoning": "Versatile multi-tier organizer",
+          "image_url": null
+        },
+        {
+          "id": "prod_3831c2",
+          "name": "Contemporary Luxury Statement Accent Armchair",
+          "category": "Furniture",
+          "room": "Balcony Lounge",
+          "estimated_price": 1400.0,
+          "source": "Amazon",
+          "product_url": "https://www.amazon.com/search?q=Statement+Accent+Armchair",
+          "reasoning": "Comfortable reading or lounge seat",
+          "image_url": null
+        },
+        {
+          "id": "prod_0d93e8",
+          "name": "Contemporary Luxury Warm Ambient LED Light Strip & Fixture",
+          "category": "Lighting",
+          "room": "Balcony Lounge",
+          "estimated_price": 600.0,
+          "source": "Amazon",
+          "product_url": "https://www.amazon.com/search?q=Warm+Ambient+LED+Light+Strip+&+Fixture",
+          "reasoning": "Custom mood accent lighting",
+          "image_url": null
+        },
+        {
+          "id": "prod_bd669a",
+          "name": "Contemporary Luxury Botanical Ceramic Planter & Stand",
+          "category": "Decor",
+          "room": "Balcony Lounge",
+          "estimated_price": 400.0,
+          "source": "IKEA",
+          "product_url": "https://www.ikea.com/search?q=Botanical+Ceramic+Planter+&+Stand",
+          "reasoning": "Adds biophilic touch to revitalize the atmosphere",
+          "image_url": null
+        }
+      ],
+      "ai_tips": [
+        "Invest the largest share into foundational pieces (sofas, mattresses, work desks) where durability matters most.",
+        "Leverage IKEA for modular storage and Amazon for lighting and decorative accents.",
+        "Keep ambient lighting between 2700K-3000K for maximum warmth and coziness."
+      ],
+      "created_at": "2026-09-22T11:53:46.782733+00:00"
+    }
+  },
+  {
+    "id": "jewelry_d22a9ddb",
+    "user_id": null,
+    "planner_type": "jewelry",
+    "title": "Rose Gold Minimalist for Cocktail Evening",
+    "budget": 18000.0,
+    "spent_or_allocated": 18000.0,
+    "created_at": "2026-09-22T11:44:08.183600+00:00",
+    "input_parameters": {
+      "budget": 18000.0,
+      "occasion": "Cocktail Evening",
+      "preferred_metal_or_style": "Rose Gold Minimalist",
+      "outfit_description": "Black velvet evening gown with sweetheart neckline",
+      "image_filename": "outfit_3fbddbeb7c.png"
+    },
+    "recommendation_summary": {
+      "plan_id": "jewelry_d22a9ddb",
+      "total_budget": 18000.0,
+      "total_estimated_price": 18000.0,
+      "remaining_budget": 0.0,
+      "occasion": "Cocktail Evening",
+      "outfit_analysis": "Multimodal analysis of uploaded outfit (outfit_3fbddbeb7c.png): Coordinated tones and silhouette selected to complement your Cocktail Evening attire with Rose Gold Minimalist.",
+      "jewelry_pieces": [
+        {
+          "id": "jewel_4aecbf",
+          "name": "Artisanal Rose Gold Minimalist Statement Choker / Necklace Set",
+          "type": "Necklace / Choker",
+          "estimated_price": 8100.0,
+          "source": "Amazon",
+          "metal_or_material": "Rose Gold Minimalist",
+          "matching_reason": "Highlights neckline elegance and balances the formal tone of the Cocktail Evening outfit.",
+          "product_url": "https://www.amazon.com/search?q=Artisanal+Rose+Gold+Minimalist+Statement+Choker+/+Necklace+Set",
+          "image_url": null
+        },
+        {
+          "id": "jewel_b85560",
+          "name": "Handcrafted Rose Gold Minimalist Drop Earrings",
+          "type": "Earrings",
+          "estimated_price": 4500.0,
+          "source": "Flipkart",
+          "metal_or_material": "Rose Gold Minimalist",
+          "matching_reason": "Frames face contours and complements the necklace without overpowering the ensemble.",
+          "product_url": "https://www.flipkart.com/search?q=Handcrafted+Rose+Gold+Minimalist+Drop+Earrings",
+          "image_url": null
+        },
+        {
+          "id": "jewel_b83f79",
+          "name": "Embellished Rose Gold Minimalist Cuff Bracelet / Bangles",
+          "type": "Bangles / Bracelet",
+          "estimated_price": 3240.0,
+          "source": "Amazon",
+          "metal_or_material": "Rose Gold Minimalist",
+          "matching_reason": "Adds refined wrist detailing visible during hand gestures and socializing.",
+          "product_url": "https://www.amazon.com/search?q=Embellished+Rose+Gold+Minimalist+Cuff+Bracelet+/+Bangles",
+          "image_url": null
+        },
+        {
+          "id": "jewel_ef9a8e",
+          "name": "Solitaire Accent Adjustable Cocktail Ring",
+          "type": "Ring",
+          "estimated_price": 2160.0,
+          "source": "Flipkart",
+          "metal_or_material": "Rose Gold Minimalist",
+          "matching_reason": "Subtle finishing touch bringing unified elegance across all jewelry accessories.",
+          "product_url": "https://www.flipkart.com/search?q=Solitaire+Accent+Adjustable+Cocktail+Ring",
+          "image_url": null
+        }
+      ],
+      "styling_advice": [
+        "If your attire has high-detail embroidery around the neckline, keep the necklace subtle and let the Handcrafted Rose Gold Minimalist Drop Earrings take center stage.",
+        "Maintain consistent metal tones across all accessories (earrings, clutch clasps, watch) for a seamless luxury aesthetic.",
+        "Apply perfumes and hairsprays prior to putting on jewelry to preserve polish and stone luster."
+      ],
+      "created_at": "2026-09-22T11:44:08.183600+00:00"
+    }
+  },
+  {
+    "id": "jewelry_37c646c1",
+    "user_id": null,
+    "planner_type": "jewelry",
+    "title": "Kundan & Pearls for Wedding Sangeet",
+    "budget": 15000.0,
+    "spent_or_allocated": 15000.0,
+    "created_at": "2026-09-22T11:44:08.146579+00:00",
+    "input_parameters": {
+      "budget": 15000.0,
+      "occasion": "Wedding Sangeet",
+      "preferred_metal_or_style": "Kundan & Pearls",
+      "outfit_description": "Royal blue lehenga with silver and gold mirror work",
+      "image_filename": null
+    },
+    "recommendation_summary": {
+      "plan_id": "jewelry_37c646c1",
+      "total_budget": 15000.0,
+      "total_estimated_price": 15000.0,
+      "remaining_budget": 0.0,
+      "occasion": "Wedding Sangeet",
+      "outfit_analysis": "Analyzed outfit context for Wedding Sangeet. The Kundan & Pearls palette provides high visual harmony by contrasting beautifully with rich attire colors while preventing metallic clashes.",
+      "jewelry_pieces": [
+        {
+          "id": "jewel_be092a",
+          "name": "Artisanal Kundan & Pearls Statement Choker / Necklace Set",
+          "type": "Necklace / Choker",
+          "estimated_price": 6750.0,
+          "source": "Amazon",
+          "metal_or_material": "Kundan & Pearls",
+          "matching_reason": "Highlights neckline elegance and balances the formal tone of the Wedding Sangeet outfit.",
+          "product_url": "https://www.amazon.com/search?q=Artisanal+Kundan+&+Pearls+Statement+Choker+/+Necklace+Set",
+          "image_url": null
+        },
+        {
+          "id": "jewel_64b81e",
+          "name": "Handcrafted Kundan & Pearls Drop Earrings",
+          "type": "Earrings",
+          "estimated_price": 3750.0,
+          "source": "Flipkart",
+          "metal_or_material": "Kundan & Pearls",
+          "matching_reason": "Frames face contours and complements the necklace without overpowering the ensemble.",
+          "product_url": "https://www.flipkart.com/search?q=Handcrafted+Kundan+&+Pearls+Drop+Earrings",
+          "image_url": null
+        },
+        {
+          "id": "jewel_a8b126",
+          "name": "Embellished Kundan & Pearls Cuff Bracelet / Bangles",
+          "type": "Bangles / Bracelet",
+          "estimated_price": 2700.0,
+          "source": "Amazon",
+          "metal_or_material": "Kundan & Pearls",
+          "matching_reason": "Adds refined wrist detailing visible during hand gestures and socializing.",
+          "product_url": "https://www.amazon.com/search?q=Embellished+Kundan+&+Pearls+Cuff+Bracelet+/+Bangles",
+          "image_url": null
+        },
+        {
+          "id": "jewel_850cd9",
+          "name": "Solitaire Accent Adjustable Cocktail Ring",
+          "type": "Ring",
+          "estimated_price": 1800.0,
+          "source": "Flipkart",
+          "metal_or_material": "Kundan & Pearls",
+          "matching_reason": "Subtle finishing touch bringing unified elegance across all jewelry accessories.",
+          "product_url": "https://www.flipkart.com/search?q=Solitaire+Accent+Adjustable+Cocktail+Ring",
+          "image_url": null
+        }
+      ],
+      "styling_advice": [
+        "If your attire has high-detail embroidery around the neckline, keep the necklace subtle and let the Handcrafted Kundan & Pearls Drop Earrings take center stage.",
+        "Maintain consistent metal tones across all accessories (earrings, clutch clasps, watch) for a seamless luxury aesthetic.",
+        "Apply perfumes and hairsprays prior to putting on jewelry to preserve polish and stone luster."
+      ],
+      "created_at": "2026-09-22T11:44:08.146579+00:00"
+    }
+  },
+  {
+    "id": "party_c2dd8bb8",
+    "user_id": null,
+    "planner_type": "party",
+    "title": "Housewarming Bash for 25 Guests",
+    "budget": 30000.0,
+    "spent_or_allocated": 30000.0,
+    "created_at": "2026-09-22T11:44:08.114903+00:00",
+    "input_parameters": {
+      "budget": 30000.0,
+      "guest_count": 25,
+      "event_type": "Housewarming Bash",
+      "venue_required": false,
+      "food_preference": "Italian Finger Foods & Mocktails",
+      "theme_or_vibe": "Cozy Fairy Lights & Acoustic"
+    },
+    "recommendation_summary": {
+      "plan_id": "party_c2dd8bb8",
+      "total_budget": 30000.0,
+      "guest_count": 25,
+      "cost_per_guest": 1200.0,
+      "categories": [
+        {
+          "category": "Food & Catering",
+          "allocated_budget": 15600.0,
+          "percentage": 52.0,
+          "sources": [
+            "Swiggy",
+            "Zomato"
+          ],
+          "items_or_suggestions": [
+            "Gourmet Italian Finger Foods & Mocktails multi-course meal",
+            "Artisanal appetizers & dessert platters",
+            "Custom beverage & mocktail bar mixer packs"
+          ]
+        },
+        {
+          "category": "Decor & Ambience",
+          "allocated_budget": 6600.0,
+          "percentage": 22.0,
+          "sources": [
+            "Amazon",
+            "Blinkit"
+          ],
+          "items_or_suggestions": [
+            "Ambient LED strip lighting & balloon garland installations",
+            "Customized welcome banner & party photo backdrop"
+          ]
+        },
+        {
+          "category": "Music & Entertainment",
+          "allocated_budget": 4800.0,
+          "percentage": 16.0,
+          "sources": [
+            "Spotify",
+            "Amazon"
+          ],
+          "items_or_suggestions": [
+            "Party board games, trivia card deck & party lighting rig",
+            "High-bass wireless speaker sync"
+          ]
+        },
+        {
+          "category": "Essentials & Refreshments",
+          "allocated_budget": 3000.0,
+          "percentage": 10.0,
+          "sources": [
+            "Blinkit",
+            "Zomato"
+          ],
+          "items_or_suggestions": [
+            "Premium glassware/cutlery alternatives, gourmet snacks, ice"
+          ]
+        }
+      ],
+      "partner_recommendations": [
+        {
+          "partner": "Swiggy",
+          "service_type": "Catering / Bulk Order",
+          "deal_title": "Swiggy Party Platters & Mini-Buffet Deals",
+          "estimated_cost": 13500.0,
+          "description": "Pre-order curated bulk party packs with scheduled doorstep delivery.",
+          "action_url": "https://www.swiggy.com"
+        },
+        {
+          "partner": "Zomato",
+          "service_type": "Dining & Drinks",
+          "deal_title": "Zomato Gourmet & Beverage Mixers",
+          "estimated_cost": 3000.0,
+          "description": "Freshly prepared artisanal starters and craft refreshment coolers.",
+          "action_url": "https://www.zomato.com"
+        }
+      ],
+      "itinerary_timeline": [
+        "6:00 PM — Venue check-in, decor arrangement & soundcheck",
+        "7:00 PM — Guest arrivals, welcome refreshments & ice-breaker games",
+        "8:30 PM — Food catering arrival & dinner spread opening",
+        "9:45 PM — Music, dancing, or signature event activity",
+        "11:00 PM — Cake cutting / farewell party favours distribution"
+      ],
+      "ai_tips": [
+        "Place catering orders at least 24 hours ahead on Swiggy/Zomato to lock group pricing.",
+        "Keep 10% of total budget reserved for last-minute refreshment refills via quick-commerce.",
+        "Prepare a collaborative Spotify queue to keep guests engaged throughout the night."
+      ],
+      "created_at": "2026-09-22T11:44:08.114903+00:00"
+    }
+  },
+  {
+    "id": "home_40c7f04f",
+    "user_id": null,
+    "planner_type": "home",
+    "title": "Modern Scandinavian Interior (Living Room, Bedroom)",
+    "budget": 50000.0,
+    "spent_or_allocated": 46750.0,
+    "created_at": "2026-09-22T11:44:08.103817+00:00",
+    "input_parameters": {
+      "budget": 50000.0,
+      "rooms": [
+        "Living Room",
+        "Bedroom"
+      ],
+      "room_quantities": {
+        "Living Room": 1,
+        "Bedroom": 1
+      },
+      "style_preference": "Modern Scandinavian",
+      "color_palette": "Warm Oak & Sage Green",
+      "special_requirements": "Eco-friendly and pet-friendly materials"
+    },
+    "recommendation_summary": {
+      "plan_id": "home_40c7f04f",
+      "total_budget": 50000.0,
+      "estimated_total_cost": 46750.0,
+      "remaining_budget": 3250.0,
+      "style_summary": "A tailored Modern Scandinavian theme featuring Warm Oak & Sage Green, optimizing functional space across 2 room(s).",
+      "room_breakdown": {
+        "Living Room": [
+          {
+            "id": "prod_7e665f",
+            "name": "Modern Scandinavian Modular 3-Seater Sofa",
+            "category": "Furniture",
+            "room": "Living Room",
+            "estimated_price": 10000.0,
+            "source": "IKEA",
+            "product_url": "https://www.ikea.com/search?q=Modular+3-Seater+Sofa",
+            "reasoning": "Sleek ergonomic sofa aligned with minimalist aesthetics",
+            "image_url": null
+          },
+          {
+            "id": "prod_3fc89e",
+            "name": "Modern Scandinavian Nordic Oak Coffee Table",
+            "category": "Furniture",
+            "room": "Living Room",
+            "estimated_price": 3750.0,
+            "source": "Amazon",
+            "product_url": "https://www.amazon.com/search?q=Nordic+Oak+Coffee+Table",
+            "reasoning": "Warm wood accent providing natural contrast",
+            "image_url": null
+          },
+          {
+            "id": "prod_9b8122",
+            "name": "Modern Scandinavian Warm Dimmable Floor Lamp",
+            "category": "Lighting",
+            "room": "Living Room",
+            "estimated_price": 2500.0,
+            "source": "Amazon",
+            "product_url": "https://www.amazon.com/search?q=Warm+Dimmable+Floor+Lamp",
+            "reasoning": "Ambient indirect glow for relaxation",
+            "image_url": null
+          },
+          {
+            "id": "prod_6bd284",
+            "name": "Modern Scandinavian Geometric Wool Blend Rug",
+            "category": "Textiles",
+            "room": "Living Room",
+            "estimated_price": 3750.0,
+            "source": "IKEA",
+            "product_url": "https://www.ikea.com/search?q=Geometric+Wool+Blend+Rug",
+            "reasoning": "Ties room palette together with acoustic dampening",
+            "image_url": null
+          },
+          {
+            "id": "prod_0fd2bf",
+            "name": "Modern Scandinavian Floating Wall Shelving Unit",
+            "category": "Storage",
+            "room": "Living Room",
+            "estimated_price": 3000.0,
+            "source": "IKEA",
+            "product_url": "https://www.ikea.com/search?q=Floating+Wall+Shelving+Unit",
+            "reasoning": "Clean open storage to display select curated decor",
+            "image_url": null
+          }
+        ],
+        "Bedroom": [
+          {
+            "id": "prod_96af28",
+            "name": "Modern Scandinavian Queen Bed Frame with Storage",
+            "category": "Furniture",
+            "room": "Bedroom",
+            "estimated_price": 10500.0,
+            "source": "IKEA",
+            "product_url": "https://www.ikea.com/search?q=Queen+Bed+Frame+with+Storage",
+            "reasoning": "Space-saving hydraulic underbed storage",
+            "image_url": null
+          },
+          {
+            "id": "prod_35d8be",
+            "name": "Modern Scandinavian Memory Foam Ergonomic Mattress",
+            "category": "Furniture",
+            "room": "Bedroom",
+            "estimated_price": 6250.0,
+            "source": "Amazon",
+            "product_url": "https://www.amazon.com/search?q=Memory+Foam+Ergonomic+Mattress",
+            "reasoning": "Orthopedic support for optimal sleep hygiene",
+            "image_url": null
+          },
+          {
+            "id": "prod_e336ca",
+            "name": "Modern Scandinavian Minimalist Bedside Tables (Set of 2)",
+            "category": "Furniture",
+            "room": "Bedroom",
+            "estimated_price": 3000.0,
+            "source": "Amazon",
+            "product_url": "https://www.amazon.com/search?q=Minimalist+Bedside+Tables+(Set+of+2)",
+            "reasoning": "Compact nightstands with cord management",
+            "image_url": null
+          },
+          {
+            "id": "prod_1b744b",
+            "name": "Modern Scandinavian Blackout Linen Curtains",
+            "category": "Textiles",
+            "room": "Bedroom",
+            "estimated_price": 2000.0,
+            "source": "Amazon",
+            "product_url": "https://www.amazon.com/search?q=Blackout+Linen+Curtains",
+            "reasoning": "Thermal insulation and total light blocking",
+            "image_url": null
+          },
+          {
+            "id": "prod_4483e0",
+            "name": "Modern Scandinavian Soft Ambient Pendant Light",
+            "category": "Lighting",
+            "room": "Bedroom",
+            "estimated_price": 2000.0,
+            "source": "IKEA",
+            "product_url": "https://www.ikea.com/search?q=Soft+Ambient+Pendant+Light",
+            "reasoning": "Calming illumination for wind-down hours",
+            "image_url": null
+          }
+        ]
+      },
+      "all_products": [
+        {
+          "id": "prod_7e665f",
+          "name": "Modern Scandinavian Modular 3-Seater Sofa",
+          "category": "Furniture",
+          "room": "Living Room",
+          "estimated_price": 10000.0,
+          "source": "IKEA",
+          "product_url": "https://www.ikea.com/search?q=Modular+3-Seater+Sofa",
+          "reasoning": "Sleek ergonomic sofa aligned with minimalist aesthetics",
+          "image_url": null
+        },
+        {
+          "id": "prod_3fc89e",
+          "name": "Modern Scandinavian Nordic Oak Coffee Table",
+          "category": "Furniture",
+          "room": "Living Room",
+          "estimated_price": 3750.0,
+          "source": "Amazon",
+          "product_url": "https://www.amazon.com/search?q=Nordic+Oak+Coffee+Table",
+          "reasoning": "Warm wood accent providing natural contrast",
+          "image_url": null
+        },
+        {
+          "id": "prod_9b8122",
+          "name": "Modern Scandinavian Warm Dimmable Floor Lamp",
+          "category": "Lighting",
+          "room": "Living Room",
+          "estimated_price": 2500.0,
+          "source": "Amazon",
+          "product_url": "https://www.amazon.com/search?q=Warm+Dimmable+Floor+Lamp",
+          "reasoning": "Ambient indirect glow for relaxation",
+          "image_url": null
+        },
+        {
+          "id": "prod_6bd284",
+          "name": "Modern Scandinavian Geometric Wool Blend Rug",
+          "category": "Textiles",
+          "room": "Living Room",
+          "estimated_price": 3750.0,
+          "source": "IKEA",
+          "product_url": "https://www.ikea.com/search?q=Geometric+Wool+Blend+Rug",
+          "reasoning": "Ties room palette together with acoustic dampening",
+          "image_url": null
+        },
+        {
+          "id": "prod_0fd2bf",
+          "name": "Modern Scandinavian Floating Wall Shelving Unit",
+          "category": "Storage",
+          "room": "Living Room",
+          "estimated_price": 3000.0,
+          "source": "IKEA",
+          "product_url": "https://www.ikea.com/search?q=Floating+Wall+Shelving+Unit",
+          "reasoning": "Clean open storage to display select curated decor",
+          "image_url": null
+        },
+        {
+          "id": "prod_96af28",
+          "name": "Modern Scandinavian Queen Bed Frame with Storage",
+          "category": "Furniture",
+          "room": "Bedroom",
+          "estimated_price": 10500.0,
+          "source": "IKEA",
+          "product_url": "https://www.ikea.com/search?q=Queen+Bed+Frame+with+Storage",
+          "reasoning": "Space-saving hydraulic underbed storage",
+          "image_url": null
+        },
+        {
+          "id": "prod_35d8be",
+          "name": "Modern Scandinavian Memory Foam Ergonomic Mattress",
+          "category": "Furniture",
+          "room": "Bedroom",
+          "estimated_price": 6250.0,
+          "source": "Amazon",
+          "product_url": "https://www.amazon.com/search?q=Memory+Foam+Ergonomic+Mattress",
+          "reasoning": "Orthopedic support for optimal sleep hygiene",
+          "image_url": null
+        },
+        {
+          "id": "prod_e336ca",
+          "name": "Modern Scandinavian Minimalist Bedside Tables (Set of 2)",
+          "category": "Furniture",
+          "room": "Bedroom",
+          "estimated_price": 3000.0,
+          "source": "Amazon",
+          "product_url": "https://www.amazon.com/search?q=Minimalist+Bedside+Tables+(Set+of+2)",
+          "reasoning": "Compact nightstands with cord management",
+          "image_url": null
+        },
+        {
+          "id": "prod_1b744b",
+          "name": "Modern Scandinavian Blackout Linen Curtains",
+          "category": "Textiles",
+          "room": "Bedroom",
+          "estimated_price": 2000.0,
+          "source": "Amazon",
+          "product_url": "https://www.amazon.com/search?q=Blackout+Linen+Curtains",
+          "reasoning": "Thermal insulation and total light blocking",
+          "image_url": null
+        },
+        {
+          "id": "prod_4483e0",
+          "name": "Modern Scandinavian Soft Ambient Pendant Light",
+          "category": "Lighting",
+          "room": "Bedroom",
+          "estimated_price": 2000.0,
+          "source": "IKEA",
+          "product_url": "https://www.ikea.com/search?q=Soft+Ambient+Pendant+Light",
+          "reasoning": "Calming illumination for wind-down hours",
+          "image_url": null
+        }
+      ],
+      "ai_tips": [
+        "Invest the largest share into foundational pieces (sofas, mattresses, work desks) where durability matters most.",
+        "Leverage IKEA for modular storage and Amazon for lighting and decorative accents.",
+        "Keep ambient lighting between 2700K-3000K for maximum warmth and coziness."
+      ],
+      "created_at": "2026-09-22T11:44:08.103817+00:00"
+    }
+  },
+  {
+    "id": "1c71be74-2c02-4757-8f26-6a3ddbb8c86f",
+    "user_id": "51685e1a-6a85-482d-bff1-a4992c85da9d",
+    "planner_type": "home",
+    "title": "Living Room Redesign",
+    "budget": 45000,
+    "spent_or_allocated": 44200,
+    "created_at": "2026-09-22T11:40:15.082581+00:00",
+    "input_parameters": {
+      "budget": 45000.0,
+      "rooms": [
+        "Living Room",
+        "Bedroom"
+      ],
+      "room_quantities": {
+        "Living Room": 1,
+        "Bedroom": 1
+      },
+      "style_preference": "Modern Scandinavian",
+      "color_palette": "Neutral & Warm Woods",
+      "special_requirements": ""
+    },
+    "recommendation_summary": {
+      "status": "success"
+    }
+  }
+]

@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+
+{% block title %}Home Interior Planner — PocketSmart AI{% endblock %}
+
+{% block content %}
+<div style="max-width: 800px; margin: 0 auto;">
+  <div style="margin-bottom: 2rem;">
+    <a href="/" style="color: var(--text-dim); text-decoration: none; font-size: 0.88rem;">← Back to Hub</a>
+    <div style="display: flex; align-items: center; gap: 0.75rem; margin-top: 0.75rem;">
+      <div class="planner-icon-wrap" style="width:42px; height:42px; font-size:1.3rem; background:rgba(16,185,129,0.15); color:#10b981; margin:0;">
+        🛋️
+      </div>
+      <div>
+        <h1 style="font-size: 2rem;">Home Interior Planner</h1>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">
+          Distribute your budget across furniture, ambient lighting, and curated decor.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="glass-panel">
+    <form id="home-planner-form">
+      <!-- Total Budget Slider -->
+      <div class="form-group">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <label class="form-label" style="margin: 0;">Total Renovation / Decor Budget</label>
+          <span class="range-display" id="budget-display">₹50,000</span>
+        </div>
+        <div class="range-slider-wrap">
+          <input type="range" id="budget-slider" class="range-slider" min="10000" max="500000" step="5000" value="50000" data-display="budget-display" data-currency="true">
+        </div>
+      </div>
+
+      <!-- Target Rooms -->
+      <div class="form-group">
+        <label class="form-label">Select Rooms to Furnish</label>
+        <div class="tag-selector">
+          <label>
+            <input type="checkbox" name="rooms" value="Living Room" class="tag-checkbox" checked>
+            <span class="tag-label">Living Room</span>
+          </label>
+          <label>
+            <input type="checkbox" name="rooms" value="Bedroom" class="tag-checkbox" checked>
+            <span class="tag-label">Bedroom</span>
+          </label>
+          <label>
+            <input type="checkbox" name="rooms" value="Dining Room" class="tag-checkbox">
+            <span class="tag-label">Dining Room</span>
+          </label>
+          <label>
+            <input type="checkbox" name="rooms" value="Home Office" class="tag-checkbox">
+            <span class="tag-label">Home Office</span>
+          </label>
+          <label>
+            <input type="checkbox" name="rooms" value="Balcony Lounge" class="tag-checkbox">
+            <span class="tag-label">Balcony Lounge</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Style Preference -->
+      <div class="form-group">
+        <label class="form-label">Aesthetic & Interior Style</label>
+        <select id="style-select" class="form-control">
+          <option value="Modern Minimalist" selected>Modern Minimalist</option>
+          <option value="Scandinavian Wood & Clean Lines">Scandinavian Wood & Clean Lines</option>
+          <option value="Industrial Raw Loft">Industrial Raw Loft</option>
+          <option value="Bohemian Warm & Textured">Bohemian Warm & Textured</option>
+          <option value="Japandi Serene Aesthetic">Japandi Serene Aesthetic</option>
+          <option value="Contemporary Luxury">Contemporary Luxury</option>
+        </select>
+      </div>
+
+      <!-- Color Palette -->
+      <div class="form-group">
+        <label class="form-label" for="palette-input">Preferred Color Palette</label>
+        <input type="text" id="palette-input" class="form-control" placeholder="e.g. Warm Oak, Cream, and Sage Green accents" value="Warm Oak & Sage Green">
+      </div>
+
+      <!-- Special Requirements -->
+      <div class="form-group">
+        <label class="form-label" for="requirements-input">Special Constraints (Optional)</label>
+        <input type="text" id="requirements-input" class="form-control" placeholder="e.g. Pet-friendly fabrics, compact apartment, ergonomic seating">
+      </div>
+
+      <div style="padding-top: 1rem; border-top: 1px solid var(--border-glass); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <div style="display: flex; gap: 0.5rem; align-items: center;">
+          <span style="font-size: 0.8rem; color: var(--text-dim);">Supported Sources:</span>
+          <span class="source-tag source-ikea">IKEA</span>
+          <span class="source-tag source-amazon">Amazon</span>
+        </div>
+        <button type="submit" id="submit-btn" class="btn btn-primary btn-lg">
+          Generate Recommendations ✨
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.getElementById('home-planner-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = document.getElementById('submit-btn');
+  btn.disabled = true;
+  btn.textContent = 'Designing Interior with AI...';
+
+  const budget = parseFloat(document.getElementById('budget-slider').value);
+  const checkedRooms = Array.from(document.querySelectorAll('input[name="rooms"]:checked')).map(cb => cb.value);
+  
+  if (checkedRooms.length === 0) {
+    showToast('Please select at least one room.', 'error');
+    btn.disabled = false;
+    btn.textContent = 'Generate Recommendations ✨';
+    return;
+  }
+
+  const style_preference = document.getElementById('style-select').value;
+  const color_palette = document.getElementById('palette-input').value.trim();
+  const special_requirements = document.getElementById('requirements-input').value.trim();
+
+  const payload = {
+    budget,
+    rooms: checkedRooms,
+    room_quantities: checkedRooms.reduce((acc, r) => ({ ...acc, [r]: 1 }), {}),
+    style_preference,
+    color_palette,
+    special_requirements
+  };
+
+  try {
+    const res = await fetch('/generate-home', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    if (!res.ok) {
+      const err = await res.json();
+      showToast(err.detail || 'Generation failed', 'error');
+      btn.disabled = false;
+      btn.textContent = 'Generate Recommendations ✨';
+    } else {
+      const data = await res.json();
+      showToast('Plan generated successfully!', 'success');
+      setTimeout(() => {
+        window.location.href = `/recommendations/${data.plan_id}`;
+      }, 500);
+    }
+  } catch (err) {
+    showToast('Server error, please try again.', 'error');
+    btn.disabled = false;
+    btn.textContent = 'Generate Recommendations ✨';
+  }
+});
+</script>
+{% endblock %}

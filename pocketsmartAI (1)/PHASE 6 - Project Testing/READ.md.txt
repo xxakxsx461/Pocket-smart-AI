@@ -1,0 +1,35 @@
+POCKETSMART AI – SMART BUDGET & RECOMMENDATION ASSISTANT
+
+PHASE 6: PROJECT TESTING
+
+Testing Approach:
+The application was tested using automated testing and manual testing.
+
+Automated Testing:
+
+- Testing framework: pytest
+- Command: pytest -q
+
+Tests Covered:
+
+- Health check
+- Public pages
+- User authentication
+- Session behavior
+- Planner generation
+- Local fallback engine
+
+Manual Test Cases:
+
+1. User Registration - Pass
+2. User Login - Pass
+3. Home Budget Planner - Pass
+4. Party Budget Planner - Pass
+5. Jewelry Budget Planner - Pass
+6. Jewelry Outfit Image Upload - Pass
+7. Recommendation History - Pass
+8. Gemini API Fallback Engine - Pass
+9. Logout - Pass
+
+Conclusion:
+All core features of PocketSmart AI were tested successfully and performed as expected.
